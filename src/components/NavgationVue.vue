@@ -38,33 +38,44 @@ import { reactive, ref } from "vue";
 import SearchVue from "@/components/SearchVue.vue";
 import NavSideBarVue from "@/components/NavSideBarVue.vue";
 
+interface Isearch {
+  onOff: boolean;
+}
+
+interface InavSide {
+  onOff: boolean;
+}
+
 const dark = ref<boolean>(true);
-const search = reactive({
+const search = reactive<Isearch>({
   onOff: false,
 });
-const navSide = reactive({
+const navSide = reactive<InavSide>({
   onOff: false,
 });
 
-function darkModeClickHandler() {
+function darkModeClickHandler(): void {
   dark.value = !dark.value;
 }
 
-function searchBarOnOffHandler() {
+function searchBarOnOffHandler(): void {
   search.onOff = !search.onOff;
 }
 
-function navSidebarOnOffHandler() {
+function navSidebarOnOffHandler(): void {
   navSide.onOff = !navSide.onOff;
 }
 
-function sideBarOff() {
+function sideBarOff(): void {
   navSide.onOff = false;
 }
 </script>
 
 <style lang="scss" scoped>
 .nav-area {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   width: 100%;
   height: 64px;
@@ -75,7 +86,7 @@ function sideBarOff() {
   text-align: center;
   align-items: center;
   justify-content: center;
-
+  z-index: 9998;
   .title {
     font-size: large;
   }

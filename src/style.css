@@ -36,3 +36,8 @@ a:active {
   color: #fff;
   background-color: #f59000;
 }
+
+ol {
+  margin: 0;
+  padding: 0;
+}

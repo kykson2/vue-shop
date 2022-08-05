@@ -11,4 +11,9 @@ import NavgationVue from "@/components/NavgationVue.vue";
   <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+* {
+  padding: 0;
+  margin: 0;
+}
+</style>
