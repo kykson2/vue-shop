@@ -2,7 +2,26 @@
   <div>
     <div>
       <transition name="show">
-        <div v-if="navSideBarOnOff" class="navSideBar">side</div>
+        <div v-if="navSideBarOnOff" class="navSideBar">
+          <RouterLink
+            to="/fashion"
+            class="link"
+            @click="$emit('sideBarOff', navSideBarOnOff)"
+            >패션</RouterLink
+          >
+          <RouterLink
+            to="/accesory"
+            class="link"
+            @click="$emit('sideBarOff', navSideBarOnOff)"
+            >악세서리</RouterLink
+          >
+          <RouterLink
+            to="/digital"
+            class="link"
+            @click="$emit('sideBarOff', navSideBarOnOff)"
+            >디지털</RouterLink
+          >
+        </div>
       </transition>
     </div>
     <transition name="navOff">
@@ -29,12 +48,20 @@ defineEmits({
 <style lang="scss" scoped>
 .navSideBar {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
   top: 0;
   left: 0;
   width: 15rem;
   height: 100%;
   background-color: rgb(58, 65, 68);
   z-index: 9999;
+
+  .link {
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
 }
 
 .sideBarOff {

@@ -9,7 +9,9 @@
         @side-bar-off="sideBarOff"
       />
     </div>
-    <h1 class="title">Vue Shop</h1>
+    <RouterLink to="/">
+      <h1 class="title">Vue Shop</h1>
+    </RouterLink>
 
     <div class="nav-right-item">
       <button @click="darkModeClickHandler">
@@ -23,7 +25,9 @@
         <SearchVue :search-on-off="search.onOff" />
       </div>
       <div>
-        <font-awesome-icon class="icon" icon="fa-solid fa-cart-shopping" />
+        <RouterLink to="/cart">
+          <font-awesome-icon class="icon" icon="fa-solid fa-cart-shopping" />
+        </RouterLink>
       </div>
     </div>
   </div>

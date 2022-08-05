@@ -9,7 +9,11 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import router from "./router";
 
 library.add(fas, far, fab);
 
-createApp(App).component("FontAwesomeIcon", FontAwesomeIcon).mount("#app");
+createApp(App)
+  .use(router)
+  .component("FontAwesomeIcon", FontAwesomeIcon)
+  .mount("#app");
