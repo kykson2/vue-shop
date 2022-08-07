@@ -9,11 +9,14 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import axios from "axios";
 import router from "./router";
 
 library.add(fas, far, fab);
 
-createApp(App)
-  .use(router)
-  .component("FontAwesomeIcon", FontAwesomeIcon)
-  .mount("#app");
+const app = createApp(App);
+
+app.use(router, axios);
+app.component("FontAwesomeIcon", FontAwesomeIcon);
+app.mount("#app");
+app.config.globalProperties.axios = axios;

@@ -75,7 +75,7 @@ function sideBarOff(): void {
 .nav-area {
   position: fixed;
   top: 0;
-  left: 0;
+
   display: flex;
   width: 100%;
   height: 64px;
@@ -103,10 +103,6 @@ function sideBarOff(): void {
     }
   }
 
-  .nav-left-item {
-    display: flex;
-    flex: none;
-  }
   .nav-right-item {
     display: flex;
     margin-left: auto;
