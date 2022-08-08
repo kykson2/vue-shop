@@ -10,13 +10,14 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
+import store from "@/store/store";
 import router from "./router";
 
 library.add(fas, far, fab);
 
 const app = createApp(App);
 
-app.use(router, axios);
+app.use(router, axios, store);
 app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.mount("#app");
 app.config.globalProperties.axios = axios;

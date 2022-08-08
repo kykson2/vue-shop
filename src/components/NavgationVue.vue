@@ -14,8 +14,12 @@
     </RouterLink>
 
     <div class="nav-right-item">
-      <button @click="darkModeClickHandler">
-        <font-awesome-icon v-if="dark" class="icon" icon="fa-solid fa-moon" />
+      <button @click="storeThema.changeThemaMode">
+        <font-awesome-icon
+          v-if="storeThema.thema === false"
+          class="icon"
+          icon="fa-solid fa-moon"
+        />
         <font-awesome-icon v-else class="icon dark" icon="fa-solid fa-sun" />
       </button>
       <div>
@@ -34,9 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import SearchVue from "@/components/SearchVue.vue";
 import NavSideBarVue from "@/components/NavSideBarVue.vue";
+import { useThemaStore } from "@/store/thema";
 
 interface Isearch {
   onOff: boolean;
@@ -46,17 +51,14 @@ interface InavSide {
   onOff: boolean;
 }
 
-const dark = ref<boolean>(true);
+const storeThema = useThemaStore();
+
 const search = reactive<Isearch>({
   onOff: false,
 });
 const navSide = reactive<InavSide>({
   onOff: false,
 });
-
-function darkModeClickHandler(): void {
-  dark.value = !dark.value;
-}
 
 function searchBarOnOffHandler(): void {
   search.onOff = !search.onOff;
@@ -72,23 +74,39 @@ function sideBarOff(): void {
 </script>
 
 <style lang="scss" scoped>
+[data-dark="dark"] {
+  .nav-area {
+    background-color: #292929;
+    .title {
+      color: white;
+    }
+
+    .icon {
+      color: white;
+    }
+    .dark {
+      color: white;
+    }
+  }
+}
+
 .nav-area {
   position: fixed;
   top: 0;
-
   display: flex;
   width: 100%;
   height: 64px;
   margin: 0;
   padding: 0;
-  background-color: #292929;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: center;
   align-items: center;
   justify-content: center;
   z-index: 9998;
   .title {
     font-size: large;
+    color: black;
   }
   .nav-side-bar-toggle {
     display: flex;
@@ -96,11 +114,8 @@ function sideBarOff(): void {
     height: 48px;
     align-items: center;
     justify-content: center;
-
-    .toggle {
-      align-items: center;
-      justify-content: center;
-    }
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .nav-right-item {
@@ -115,9 +130,10 @@ function sideBarOff(): void {
   .icon {
     width: 23px;
     height: 23px;
+    color: black;
   }
   .dark {
-    color: white;
+    color: black;
   }
 }
 </style>

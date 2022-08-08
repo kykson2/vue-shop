@@ -1,5 +1,5 @@
 <template>
-  <div>패션</div>
+  <h1 class="title">패션</h1>
   <ProductListVueVue :category="category" :max-list="props.maxList" />
 </template>
 
@@ -14,4 +14,10 @@ const props = defineProps({
 const category = ref<string>("clothing");
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.title {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 2.2em;
+}
+</style>

@@ -6,6 +6,11 @@ import FashionView from "@/views/FashionView.vue";
 import MainView from "@/views/MainView.vue";
 import CartView from "@/views/CartView.vue";
 
+import pinia from "@/store/store";
+import useThema from "@/store/thema";
+
+export const store = useThema(pinia);
+
 const routes = [
   {
     path: "/",

@@ -11,9 +11,11 @@ import NavgationVue from "@/components/NavgationVue.vue";
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 * {
   padding: 0;
   margin: 0;
+}
+@media (prefers-color-scheme: dark) {
 }
 </style>

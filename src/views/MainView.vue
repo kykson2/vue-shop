@@ -24,8 +24,8 @@
 
     <!-- 패션페이지 -->
     <fashion-view :max-list="maxList" />
-    <accessory-view />
-    <digital-view />
+    <accessory-view :max-list="maxList" />
+    <digital-view :max-list="maxList" />
   </div>
 </template>
 
